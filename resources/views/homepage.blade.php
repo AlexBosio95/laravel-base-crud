@@ -3,5 +3,7 @@
 @section('title', 'Homepage')
 
 @section('elements')
-    <h1>Page 1</h1>
+<div class="container">
+    <h1>Comic shop management</h1>
+</div>
 @endsection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Library;
 use Illuminate\Http\Request;
 
 class ComicsController extends Controller
@@ -14,7 +15,8 @@ class ComicsController extends Controller
     public function index()
     {
         //
-        
+        $comicsList = Library::all();
+        return view('library.index', compact('comicsList'));
     }
 
     /**
@@ -24,7 +26,7 @@ class ComicsController extends Controller
      */
     public function create()
     {
-        //
+        return view('library.add');
     }
 
     /**
@@ -36,6 +38,13 @@ class ComicsController extends Controller
     public function store(Request $request)
     {
         //
+        $info = $request->all();
+            $newComicStrip = new Library();
+
+            $newComicStrip->fill($info);
+            $newComicStrip->save();
+
+            return redirect()->route('Library.index');
     }
 
     /**
@@ -46,7 +55,13 @@ class ComicsController extends Controller
      */
     public function show($id)
     {
-        //
+        $comicStrip = Library::find($id);
+
+        if ($comicStrip) {
+            return view('library.show', compact('comicStrip'));
+        }
+
+        abort(404);
     }
 
     /**
