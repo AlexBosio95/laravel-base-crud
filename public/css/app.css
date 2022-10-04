@@ -3,15 +3,11 @@
 }
 
 .card img {
-  max-height: 20rem;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: top;
-     object-position: top;
+  width: 100%;
 }
 
 .card .desc {
-  max-height: 10rem;
+  max-height: 14rem;
   overflow: auto;
 }
 

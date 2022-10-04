@@ -8,9 +8,12 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
             <a class="nav-link active" aria-current="page" href="{{route('Library.index')}}">Library List</a>
-            <a class="nav-link" href="{{route('Library.create')}}">Add Comic Strip</a>
+            <a class="nav-link" href="{{route('Library.create')}}"><i class="fa-solid fa-square-plus"></i> New</a>
             </div>
         </div>
         </div>
     </nav>
+
+
+    
 </header>

@@ -2,13 +2,11 @@
     margin-top: 4rem;
     
     img{
-        max-height: 20rem;
-        object-fit: cover;
-        object-position: top;
+        width: 100%;
     }
 
     .desc{
-        max-height: 10rem;
+        max-height: 14rem;
         overflow: auto;
     }
 }

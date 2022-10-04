@@ -18,7 +18,7 @@
 
         <div class="mb-3">
             <label for="thumb" class="form-label">Url Image</label>
-            <input type="text" class="form-control" id="thumb" name="thumb" />
+            <input type="text" class="form-control" id="thumb" name="thumb" value="https://"/>
         </div>
 
         <div class="mb-3">
