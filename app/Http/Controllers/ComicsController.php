@@ -44,7 +44,7 @@ class ComicsController extends Controller
             $newComicStrip->fill($info);
             $newComicStrip->save();
 
-            return redirect()->route('Library.index');
+            return redirect()->route('Library.index')->with('add', 'Elemento aggiunto');;
     }
 
     /**
@@ -55,13 +55,8 @@ class ComicsController extends Controller
      */
     public function show($id)
     {
-        $comicStrip = Library::find($id);
-
-        if ($comicStrip) {
-            return view('library.show', compact('comicStrip'));
-        }
-
-        abort(404);
+        $comicStrip = Library::findOrFail($id);
+        return view('library.show', compact('comicStrip'));
     }
 
     /**
@@ -73,6 +68,9 @@ class ComicsController extends Controller
     public function edit($id)
     {
         //
+        $comicStrip = Library::findOrFail($id);
+        return view('library.edit', compact('comicStrip'));
+
     }
 
     /**
@@ -84,7 +82,12 @@ class ComicsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $comicStrip = Library::findOrFail($id);
+        $data = $request->all();
+        $comicStrip->update($data);
+        $comicStrip->save();
+        
+        return redirect()->route('Library.index')->with('update', 'Elemento aggiornato');
     }
 
     /**
@@ -95,6 +98,9 @@ class ComicsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $comicStrip = Library::findOrFail($id);
+        $comicStrip->delete();
+
+        return redirect()->route('Library.index')->with('status', 'Elemento eliminato');
     }
 }
