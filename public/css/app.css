@@ -3,7 +3,11 @@
 }
 
 .card img {
-  width: 100%;
+  overflow: hidden;
+  height: 100%;
+  max-width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .card .desc {
