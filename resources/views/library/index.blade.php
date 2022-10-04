@@ -46,14 +46,14 @@
                     <td>{{$comicStrip->series}}</td>
                     <td>{{$comicStrip->sale_date}}</td>
                     <td>{{$comicStrip->type}}</td>
-                    <td>{{$comicStrip->price}}</td>
+                    <td>{{$comicStrip->price . ' €'}}</td>
                     <td class="d-flex">
-                        <a class="btn btn-primary m-2" href="{{route('Library.show', ['Library' => $comicStrip])}}">View</a>
-                        <a class="btn btn-secondary m-2" href="{{route('Library.edit', ['Library' => $comicStrip])}}">Edit</a>
+                        <a href="{{route('Library.show', ['Library' => $comicStrip])}}"><i class="fa-solid fa-eye fs-5 m-2 text-primary"></i></a>
+                        <a href="{{route('Library.edit', ['Library' => $comicStrip])}}"><i class="fa-solid fa-pen-to-square fs-5 m-2 text-warning"></i></a>
                         <form id="btn" action="{{route('Library.destroy', ['Library' => $comicStrip])}}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-danger m-2">Del</button>
+                            <button type="submit" onclick="return confirm('Are you sure ?')" class="border-0 bg-transparent p-0"><i class="fa-solid fa-trash fs-5 m-2 text-danger"></i></button>
                         </form>
                     </td>
 
