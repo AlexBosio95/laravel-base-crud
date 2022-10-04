@@ -6,14 +6,12 @@
 
 
 <div class="container overflow-auto">
-        <a class="btn btn-primary" href="{{route('Library.create')}}">Add Comics</a>
+        <a class="btn btn-primary mt-3" href="{{route('Library.create')}}">Add Comics</a>
         <table class="table table-striped my-4 border">
             <thead>
                 <tr>
                     <th scope="col">id</th>
                     <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Image URL</th>
                     <th scope="col">Price</th>
                     <th scope="col">Series</th>
                     <th scope="col">Sale date</th>
@@ -23,11 +21,9 @@
             
             <tbody>
                 @foreach ($comicsList as $comicStrip)
-                <tr class="h-20">
+                <tr>
                     <th scope="row">{{$comicStrip->id}}</th>
                     <td>{{$comicStrip->title}}</td>
-                    <td>{{$comicStrip->description}}</td>
-                    <td>{{$comicStrip->thumb}}</td>
                     <td>{{$comicStrip->price}}</td>
                     <td>{{$comicStrip->series}}</td>
                     <td>{{$comicStrip->sale_date}}</td>
