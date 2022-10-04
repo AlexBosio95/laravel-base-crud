@@ -1,0 +1,17 @@
+.card {
+  margin-top: 4rem;
+}
+
+.card img {
+  max-height: 20rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+}
+
+.card .desc {
+  max-height: 10rem;
+  overflow: auto;
+}
+

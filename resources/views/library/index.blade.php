@@ -29,7 +29,7 @@
                     <td>{{$comicStrip->sale_date}}</td>
                     <td>{{$comicStrip->type}}</td>
                     <td>
-                        <a class="btn btn-primary" href="{{route('Library.show', ['Library' => $comicStrip->id])}}">View</a>
+                        <a class="btn btn-primary" href="{{route('Library.show', ['Library' => $comicStrip])}}">View</a>
                     </td>
                 </tr>
                 @endforeach
