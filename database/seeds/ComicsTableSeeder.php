@@ -16,13 +16,7 @@ class ComicsTableSeeder extends Seeder
 
         foreach ($comicsList as $comicStrip) {
             $newComicStrip = new Library();
-            $newComicStrip->title = $comicStrip['title'];
-            $newComicStrip->description = $comicStrip['description'];
-            $newComicStrip->thumb = $comicStrip['thumb'];
-            $newComicStrip->price = $comicStrip['price'];
-            $newComicStrip->series = $comicStrip['series'];
-            $newComicStrip->sale_date = $comicStrip['sale_date'];
-            $newComicStrip->type = $comicStrip['type'];
+            $newComicStrip->fill($comicStrip);
             $newComicStrip->save();
         }
     }

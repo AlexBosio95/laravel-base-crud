@@ -23,7 +23,7 @@
             
             <tbody>
                 @foreach ($comicsList as $comicStrip)
-                <tr>
+                <tr class="h-20">
                     <th scope="row">{{$comicStrip->id}}</th>
                     <td>{{$comicStrip->title}}</td>
                     <td>{{$comicStrip->description}}</td>
