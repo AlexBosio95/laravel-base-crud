@@ -4,8 +4,6 @@
 
 @section('elements')
 
-
-
 <div class="container overflow-auto">
 
     @if (session('status'))
@@ -52,10 +50,10 @@
                     <td class="d-flex">
                         <a class="btn btn-primary m-2" href="{{route('Library.show', ['Library' => $comicStrip])}}">View</a>
                         <a class="btn btn-secondary m-2" href="{{route('Library.edit', ['Library' => $comicStrip])}}">Edit</a>
-                        <form action="{{route('Library.destroy', ['Library' => $comicStrip])}}" method="post">
+                        <form id="btn" action="{{route('Library.destroy', ['Library' => $comicStrip])}}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger m-2">Del</button>
+                            <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-danger m-2">Del</button>
                         </form>
                     </td>
 
@@ -64,6 +62,8 @@
     
             </tbody>
         </table>
-    </div>
+</div>
+
+
 
 @endsection

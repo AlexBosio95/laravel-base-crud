@@ -44,7 +44,7 @@ class ComicsController extends Controller
             $newComicStrip->fill($info);
             $newComicStrip->save();
 
-            return redirect()->route('Library.index')->with('add', 'Elemento aggiunto');;
+            return redirect()->route('Library.index')->with('add', 'Item added');;
     }
 
     /**
@@ -87,7 +87,7 @@ class ComicsController extends Controller
         $comicStrip->update($data);
         $comicStrip->save();
         
-        return redirect()->route('Library.index')->with('update', 'Elemento aggiornato');
+        return redirect()->route('Library.index')->with('update', 'Item updated');
     }
 
     /**
@@ -101,6 +101,6 @@ class ComicsController extends Controller
         $comicStrip = Library::findOrFail($id);
         $comicStrip->delete();
 
-        return redirect()->route('Library.index')->with('status', 'Elemento eliminato');
+        return redirect()->route('Library.index')->with('status', 'Item deleted');
     }
 }
