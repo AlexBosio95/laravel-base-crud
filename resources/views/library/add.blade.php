@@ -6,14 +6,13 @@
 
 <div class="container">
 
-    <form action="{{route('Library.store')}}" method="POST">
+    <form class="mt-4" action="{{route('Library.store')}}" method="POST">
 
         @csrf
 
-        
         <div class="mb-3">
-            <label for="title" class="form-label">title</label>
-            <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{old('title')}}"/>
+            <label for="title" class="form-label">Title</label>
+            <input placeholder="My Title" type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{old('title')}}"/>
             @error('title')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -21,7 +20,7 @@
 
         <div class="mb-3">
             <label for="thumb" class="form-label">Url Image</label>
-            <input type="text" class="form-control @error('thumb') is-invalid @enderror" id="thumb" name="thumb" value="{{old('thumb')}}"/>
+            <input placeholder="https://" type="text" class="form-control @error('thumb') is-invalid @enderror" id="thumb" name="thumb" value="{{old('thumb')}}"/>
             @error('thumb')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -29,7 +28,7 @@
 
         <div class="mb-3">
             <label for="description" class="form-label">Description</label>
-            <textarea id="description" name="description" class="form-control @error('description') is-invalid @enderror">{{old('description')}}</textarea>
+            <textarea placeholder="Min 50 characters" id="description" name="description" class="form-control @error('description') is-invalid @enderror">{{old('description')}}</textarea>
             @error('description')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -37,7 +36,7 @@
         
         <div class="mb-3">
             <label for="price" class="form-label">Price</label>
-            <input type="text" inputmode="numeric" class="form-control @error('price') is-invalid @enderror " id="price" name="price" value="{{old('price')}}"/>
+            <input placeholder="0,00 €" type="text" inputmode="numeric" class="form-control @error('price') is-invalid @enderror " id="price" name="price" value="{{old('price')}}"/>
             @error('price')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
