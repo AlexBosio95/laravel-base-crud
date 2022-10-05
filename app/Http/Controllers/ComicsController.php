@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Library;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ComicsController extends Controller
 {
@@ -37,7 +38,18 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(
+            [
+                'title' => 'required|max:50|min:2',
+                'description' => 'required|max:65535|min:50',
+                'thumb' => 'required|max:255|url',
+                'series' => 'required|max:50|min:2',
+                'type' => 'required|max:50|min:2',
+                'sale_date' => 'required|date',
+                'price' => 'required|integer'
+            ]
+        );
+
         $info = $request->all();
             $newComicStrip = new Library();
 
@@ -82,12 +94,25 @@ class ComicsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate(
+            [
+                'title' => 'required|max:50|min:2',
+                'description' => 'required|max:65535|min:50',
+                'thumb' => 'required|max:255|url',
+                'series' => 'required|max:50|min:2',
+                'type' => 'required|max:50|min:2',
+                'sale_date' => 'required|date',
+                'price' => 'required|integer'
+            ]
+        );
+
         $comicStrip = Library::findOrFail($id);
+
         $data = $request->all();
         $comicStrip->update($data);
         $comicStrip->save();
         
-        return redirect()->route('Library.index')->with('update', 'Item updated');
+        return redirect()->route('Library.edit', ['Library' => $comicStrip])->with('update', 'Item updated');
     }
 
     /**

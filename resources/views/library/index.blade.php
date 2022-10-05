@@ -12,11 +12,6 @@
         </div>
     @endif
 
-    @if (session('update'))
-        <div class="alert alert-success mt-3">
-            {{ session('update') }}
-        </div>
-    @endif
 
     @if (session('add'))
         <div class="alert alert-success mt-3">
